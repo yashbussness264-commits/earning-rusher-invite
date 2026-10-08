@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earning Rusher - Invite</title>
+<style>
+:root{--bg:#0F0B22;--card:#1A1436;--line:#33295F;--gold:#FFC933;--vio:#7C5CFF;--txt:#F3F0FF;--mut:#9C93C9}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(circle at 50% 0,#3A2A8C,var(--bg) 60%);color:var(--txt);font-family:system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{max-width:420px;width:100%;text-align:center}.logo{width:90px;height:90px;margin-bottom:10px}
+h1{font-size:28px;margin-bottom:6px}p{color:var(--mut);margin-bottom:16px}
+.code{background:var(--card);border:1px dashed var(--gold);border-radius:16px;padding:16px;margin:16px 0}
+.code b{display:block;font-size:30px;color:var(--gold);letter-spacing:2px;margin-top:6px}
+a.btn,button{display:block;width:100%;padding:15px;border-radius:14px;border:0;font:inherit;font-weight:800;text-decoration:none;margin-bottom:10px;cursor:pointer}
+.go{background:linear-gradient(135deg,#FFC933,#FF9F1C);color:#2B1B00}.ghost{background:var(--card);color:var(--txt);border:1px solid var(--line)}
+.steps{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.8;margin-top:6px}
+</style></head><body><div class="box">
+<svg class="logo" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#FFC933"/><path d="M54 20 30 55h16l-4 25 28-38H54z" fill="#2B1B00"/></svg>
+<h1>Earning Rusher</h1>
+<p id="msg">Tasks karo, videos dekho aur real paise kamao!</p>
+<div class="code" id="codeBox" style="display:none"><span style="color:var(--mut)">Aapka referral code</span><b id="code"></b></div>
+<a class="btn go" id="dl" href="#">📲 Download App</a>
+<button class="ghost" id="cp" style="display:none" onclick="copyCode()">📋 Code copy karo</button>
+<div class="steps"><b>Kaise shuru karein:</b><br>1. App download karke install karo<br>2. Register karte waqt upar wala referral code daalo<br>3. Pehla task complete karo, aur aapke dost ko bonus milega</div>
+</div>
+<script>
+var APK_URL="";
+var p=new URLSearchParams(location.search),ref=(p.get("ref")||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);
+if(ref){try{localStorage.setItem("auto_ref_code",ref)}catch(e){}
+  document.getElementById("code").textContent=ref;document.getElementById("codeBox").style.display="block";document.getElementById("cp").style.display="block";
+  document.getElementById("msg").textContent="Aapke dost ne aapko Earning Rusher par invite kiya hai!"}
+var dl=document.getElementById("dl");
+if(APK_URL){dl.href=APK_URL}else{dl.textContent="Download link jaldi aa raha hai";dl.style.opacity=.6;dl.onclick=function(e){e.preventDefault()}}
+function copyCode(){navigator.clipboard&&navigator.clipboard.writeText(ref);document.getElementById("cp").textContent="✅ Copy ho gaya"}
+</script></body></html>
